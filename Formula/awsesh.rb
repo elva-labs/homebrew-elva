@@ -5,21 +5,21 @@ class Awsesh < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.3/sesh-darwin-amd64"
-      sha256 "b91cd82500a681f23ff90f46d3f30fa25a7015c469863b6fbd338340214a18a4"
+      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.5/sesh-darwin-amd64"
+      sha256 "5374cf292c927031f35531aa5debc1574774f95bb679898c7e3a42545eed9919"
     elsif Hardware::CPU.arm?
-      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.3/sesh-darwin-arm64"
-      sha256 "5f4e65cb871172d81ff0d19d770c464ef97db2b3dac80380986ee5c39c7a39ae"
+      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.5/sesh-darwin-arm64"
+      sha256 "e94645d632c4ff8463511f9b1636c111efb2edbe9b2eae06296f6a0fa5a1a3d9"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.3/sesh-linux-amd64"
-      sha256 "f4acb1eb96fe64a9f9d3f5f3fb9bb0d775d950be3d5d19b79a44d3b9d1bf6f7b"
+      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.5/sesh-linux-amd64"
+      sha256 "383051273fd9f201bd9ef6d827e18b0651bb2803d70844a41445ddfa484a224b"
     elsif Hardware::CPU.arm?
-      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.3/sesh-linux-arm64"
-      sha256 "c080a85d7a3975677d2297ffd5ce72ac932e1979b289ae7ab3aa232e4952b4b2"
+      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.5/sesh-linux-arm64"
+      sha256 "531f45c7a0f9a4520897cc3841cc4457c613ed573725152fda904599fc2175ff"
     end
   end
 
