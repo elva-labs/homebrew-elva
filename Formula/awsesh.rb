@@ -2,6 +2,7 @@ class Awsesh < Formula
   desc "AWS Session Manager CLI"
   homepage "https://github.com/elva-labs/awsesh"
   license "MIT"
+  version "v.0.1.6"
 
   on_macos do
     if Hardware::CPU.intel?
