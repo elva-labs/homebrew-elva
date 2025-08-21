@@ -2,25 +2,25 @@ class Awsesh < Formula
   desc "AWS Session Manager CLI"
   homepage "https://github.com/elva-labs/awsesh"
   license "MIT"
-  version "v.0.1.6"
+  version "v.0.1.7"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.6/sesh-darwin-amd64"
-      sha256 "4910c9179a1f98c562f02e0b2e1c5647f0779b4e5487a5d61d5fd5a2d6267306"
+      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.7/sesh-darwin-amd64"
+      sha256 "44f793d0c943be1e0f1c7f37de3bcbddc8e31f565feb72f9cdb99ba7277a841c"
     elsif Hardware::CPU.arm?
-      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.6/sesh-darwin-arm64"
-      sha256 "89c6c3bab765aaa2211b531b1a5d9bda5a0be7974e32d19a5f732831d4dfdc26"
+      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.7/sesh-darwin-arm64"
+      sha256 "237f320e14321ed7a9afdd80f0277a213f300309df993aec7d910adca66c5714"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.6/sesh-linux-amd64"
-      sha256 "9c7e3177cfaeb5f77ab3150d3cae09367d239c1b472221b01043d6ebc6480a37"
+      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.7/sesh-linux-amd64"
+      sha256 "ffa40b172472310a56992fc03647827d9f292666bc1bece7db7278afeec5d382"
     elsif Hardware::CPU.arm?
-      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.6/sesh-linux-arm64"
-      sha256 "6a10d26ba1c37b28e20bf6b21e3a9fe20223f23eab94b93a4576f4b3728048b3"
+      url "https://github.com/elva-labs/awsesh/releases/download/v.0.1.7/sesh-linux-arm64"
+      sha256 "fc6ff47a67d193a42f8037173a0322b93350a78fb502698f97ff195f81dc2358"
     end
   end
 
