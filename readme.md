@@ -11,6 +11,7 @@ To install the tap, run the following command:
 
 ```bash
 brew tap elva-labs/elva
+brew trust elva-labs/elva   # newer Homebrew refuses third-party taps until trusted
 ```
 
 Then install the desired package, ex:
