@@ -1,6 +1,6 @@
 cask "claude-stats" do
-  version "0.1.2"
-  sha256 "af3c6cebcbe4b2578819606113846f83967442282a1d8bc6ad3c70fdf93562db"
+  version "0.1.3"
+  sha256 "f4654a84fe5c3a7940d2020dc44a68b7592876bd87cbd466020a1ec639953e09"
 
   url "https://github.com/elva-labs/claude-stats/releases/download/v#{version}/Claude-Stats.zip"
   name "Claude Stats"
