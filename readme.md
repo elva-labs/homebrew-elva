@@ -2,7 +2,8 @@
 
 ## Packages
 
-- [awsesh](https://github.com/elva-labs/awsesh)
+- [awsesh](https://github.com/elva-labs/awsesh) — formula
+- [claude-stats](https://github.com/elva-labs/claude-stats) — cask
 
 ## Installation
 
@@ -18,6 +19,12 @@ Then install the desired package, ex:
 brew install awsesh
 ```
 
+Apps are casks:
+
+```bash
+brew install --cask claude-stats
+```
+
 ## Contributing
 
-Each formula is updated automatically from their corresponding source repository.
+Each formula and cask is updated automatically from its source repository's release workflow.
