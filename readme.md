@@ -28,4 +28,4 @@ brew install --cask claude-stats
 
 ## Contributing
 
-Each formula and cask is updated automatically from its source repository's release workflow.
+Each formula and cask is updated automatically: awsesh's release workflow pushes its formula here, and this repository polls claude-stats' releases hourly to update its cask.

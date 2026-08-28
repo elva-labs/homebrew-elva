@@ -1,0 +1,72 @@
+name: Update claude-stats cask
+
+# Pull model: this repo checks claude-stats' latest release and updates its own
+# cask, so no cross-repo token is needed — GITHUB_TOKEN can write here because
+# "here" is the repository the workflow runs in.
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # hourly; a release shows up within the hour
+  workflow_dispatch:       # or immediately, by hand
+
+permissions:
+  contents: write
+
+concurrency: update-claude-stats
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: github.repository == 'elva-labs/homebrew-elva'
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Compare latest release with the cask
+        id: check
+        run: |
+          LATEST="$(gh release view --repo elva-labs/claude-stats --json tagName --jq '.tagName' | sed 's/^v//')"
+          CURRENT="$(sed -n 's/^  version "\(.*\)"$/\1/p' Casks/claude-stats.rb)"
+          echo "latest=$LATEST" >> "$GITHUB_OUTPUT"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          echo "cask: $CURRENT, release: $LATEST"
+
+      - name: Rewrite the cask
+        if: steps.check.outputs.latest != steps.check.outputs.current
+        env:
+          VERSION: ${{ steps.check.outputs.latest }}
+        run: |
+          gh release download "v${VERSION}" --repo elva-labs/claude-stats --pattern "Claude-Stats.zip" -D /tmp
+          SHA="$(sha256sum /tmp/Claude-Stats.zip | cut -d' ' -f1)"
+          cat > Casks/claude-stats.rb <<CASK
+          cask "claude-stats" do
+            version "${VERSION}"
+            sha256 "${SHA}"
+
+            url "https://github.com/elva-labs/claude-stats/releases/download/v#{version}/Claude-Stats.zip"
+            name "Claude Stats"
+            desc "Claude and OpenAI usage quotas in the menu bar"
+            homepage "https://github.com/elva-labs/claude-stats"
+
+            livecheck do
+              url :url
+              strategy :github_latest
+            end
+
+            depends_on macos: :sonoma
+
+            app "Claude Stats.app"
+
+            zap trash: [
+              "~/Library/Application Support/ClaudeStats",
+              "~/Library/Logs/ClaudeStats.log",
+              "~/Library/Preferences/com.elva-labs.claude-stats.plist",
+            ]
+          end
+          CASK
+          git config user.name "elva-bot"
+          git config user.email "gh-bot@elva-group.com"
+          git add Casks/claude-stats.rb
+          git commit -m "Update claude-stats to v${VERSION}"
+          git push
