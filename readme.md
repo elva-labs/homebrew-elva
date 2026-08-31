@@ -5,6 +5,7 @@
 - [awsesh](https://github.com/elva-labs/awsesh) — formula
 - [claude-stats](https://github.com/elva-labs/claude-stats) — cask
 - [all-the-ports](https://github.com/elva-labs/all-the-ports) — cask
+- [authreach](https://github.com/elva-labs/authreach) — cask
 
 ## Installation
 
