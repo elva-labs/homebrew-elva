@@ -1,6 +1,6 @@
 cask "sesh-bar" do
-  version "1.1.0"
-  sha256 "d27efafd09b745788d995c5b9a3ac08f1ae7c12df7f13910d8dac5c57f3a671d"
+  version "1.1.1"
+  sha256 "14f2f30f2cfa4f72cf07db7ab1afba2427006cd8b7910792cb9f79686342c408"
 
   url "https://github.com/elva-labs/sesh-bar/releases/download/v#{version}/sesh-bar-#{version}.zip"
   name "sesh-bar"
