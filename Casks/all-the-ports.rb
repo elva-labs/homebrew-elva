@@ -1,6 +1,6 @@
 cask "all-the-ports" do
-  version "1.0.2"
-  sha256 "f1b5509fb3297c4a1ca6fb80c9f5b1f5ff4da66fc0952833cc3b8f0f7afd2045"
+  version "1.0.3"
+  sha256 "5b4b860b96637b20288609600f1a16fc1721b34665c7d0cebb5b616173f8ad2f"
 
   url "https://github.com/elva-labs/all-the-ports/releases/download/v#{version}/all-the-ports-#{version}.zip"
   name "all the ports"
