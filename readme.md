@@ -6,6 +6,7 @@
 - [claude-stats](https://github.com/elva-labs/claude-stats) — cask
 - [all-the-ports](https://github.com/elva-labs/all-the-ports) — cask
 - [authreach](https://github.com/elva-labs/authreach) — cask
+- [daily-log](https://github.com/elva-labs/daily_log) — cask
 
 ## Installation
 
