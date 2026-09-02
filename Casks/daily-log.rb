@@ -1,6 +1,13 @@
+#
+# The app is Developer ID signed and notarized, so it installs like any other
+# cask — no `--no-quarantine`, no Gatekeeper prompt:
+#
+#     brew tap elva-labs/elva
+#     brew install --cask daily-log
+
 cask "daily-log" do
-  version "1.0.2"
-  sha256 "aa6d4d784307317f2eb1d8310e2a5d5ea8fd2f31634fa4175b651f981907651b"
+  version "1.0.3"
+  sha256 "a96707541150b164139615a15a826b7dda6866b7cca20ae573939b7da0b64d38"
 
   url "https://github.com/elva-labs/daily_log/releases/download/v#{version}/daily_log-#{version}.zip"
   name "daily_log"
@@ -12,10 +19,14 @@ cask "daily-log" do
     strategy :github_latest
   end
 
+  # A bare symbol means "this version or newer". The `">= :tahoe"` string form
+  # is deprecated.
   depends_on macos: :tahoe
 
   app "daily_log.app"
 
+  # Launch-at-login is an SMAppService registration owned by the app itself, so
+  # unregister it before the bundle disappears.
   uninstall launchctl: "se.axtelius.daily-log",
             quit:      "se.axtelius.daily-log"
 
