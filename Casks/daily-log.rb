@@ -6,8 +6,8 @@
 #     brew install --cask daily-log
 
 cask "daily-log" do
-  version "1.0.3"
-  sha256 "a96707541150b164139615a15a826b7dda6866b7cca20ae573939b7da0b64d38"
+  version "1.0.4"
+  sha256 "3186858a709dd8bb413cfb67450b2d844e709e7a34591671b9eac45d22263c73"
 
   url "https://github.com/elva-labs/daily_log/releases/download/v#{version}/daily_log-#{version}.zip"
   name "daily_log"
