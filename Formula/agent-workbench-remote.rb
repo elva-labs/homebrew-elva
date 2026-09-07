@@ -4,6 +4,7 @@
 class AgentWorkbenchRemote < Formula
   desc "Agent Workbench on another machine: the daemon a desktop reaches over ssh"
   homepage "https://github.com/elva-labs/agent-workbench"
+  license "MIT"
   version "0.1.1"
 
   on_macos do
