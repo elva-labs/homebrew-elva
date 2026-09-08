@@ -5,27 +5,27 @@ class AgentWorkbenchRemote < Formula
   desc "Agent Workbench on another machine: the daemon a desktop reaches over ssh"
   homepage "https://github.com/elva-labs/agent-workbench"
   license "MIT"
-  version "0.1.1"
+  version "0.1.2"
 
   on_macos do
     on_arm do
       url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/agent-workbench-remote-darwin-aarch64"
-      sha256 "893aa2e1b0a6d7d575ae3a199defd429afa09cb110b8fbfd36f02e3c7e750607"
+      sha256 "e30644b3fded2fd9a375aeef0e2e0711234e2bd652b5418d5b6e9afc2c7c662a"
     end
     on_intel do
       url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/agent-workbench-remote-darwin-x86_64"
-      sha256 "94f21533986b907035d6f3747c4731afcee909131c1107ded3144e18f8473790"
+      sha256 "12cf2190c0f92fa2ee9f995bcf0fd7e88b857510baff8927b4563d8f7d64caf6"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/agent-workbench-remote-linux-aarch64"
-      sha256 "e92f63f4a17dc24ae0a671d6373889911c9c13d48dc79b0635f276ae69c3a1a3"
+      sha256 "1dc3ec87d568436ee70a01adde5d861125a3ca18b42ab4fc61460a523e339003"
     end
     on_intel do
       url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/agent-workbench-remote-linux-x86_64"
-      sha256 "24466678f83ef68cdfaf8389b3f397d92e877818e0ea13009962d966e12b4762"
+      sha256 "c25e8f7875b03ebf1dfaea59378a4323d6409517ea8f12ad888cb8254186024b"
     end
   end
 
