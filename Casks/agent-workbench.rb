@@ -1,13 +1,13 @@
 cask "agent-workbench" do
-  version "0.2.0"
+  version "0.3.0"
 
   on_arm do
-    sha256 "ec27daf4326f79f6398dfb81a9bc64f0f0e346ae12bbf8ba6ec83ec00b889f9d"
+    sha256 "851e6faa868f5aebddfddcc7f67aa685c4d073c23286dd13b34338e0acfb1d36"
 
     url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/Agent.Workbench_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "6fef2d1f384f4d50c12ae818aed36c03a3ca38fe0a783c6f0801215174b8f478"
+    sha256 "35b11e417e751b384fe7607afc920d11fed20456edfcb638b1d7bb6221d38ff4"
 
     url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/Agent.Workbench_#{version}_x64.dmg"
   end
