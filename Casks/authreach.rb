@@ -1,6 +1,6 @@
 cask "authreach" do
-  version "1.0.1"
-  sha256 "46ea78780d6d9504c5281d170e8e1c65e8f692d667be301df854bba9b1dfd72e"
+  version "1.0.2"
+  sha256 "bbfe2fe7336e1e1411e94eb6eb148cdedb4abe3e6099c6a8d20d3a334022da6d"
 
   url "https://github.com/elva-labs/authreach/releases/download/v#{version}/authreach-#{version}.zip"
   name "AuthReach"
