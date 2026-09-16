@@ -3,10 +3,14 @@
 ## Packages
 
 - [awsesh](https://github.com/elva-labs/awsesh) — formula
+- [toybox](https://github.com/elva-labs/toybox) — formula
+- [agent-workbench-remote](https://github.com/elva-labs/agent-workbench) — formula
 - [claude-stats](https://github.com/elva-labs/claude-stats) — cask
 - [all-the-ports](https://github.com/elva-labs/all-the-ports) — cask
 - [authreach](https://github.com/elva-labs/authreach) — cask
+- [sesh-bar](https://github.com/elva-labs/sesh-bar) — cask
 - [daily-log](https://github.com/elva-labs/daily_log) — cask
+- [agent-workbench](https://github.com/elva-labs/agent-workbench) — cask
 
 ## Installation
 
