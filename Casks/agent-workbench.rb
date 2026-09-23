@@ -1,13 +1,13 @@
 cask "agent-workbench" do
-  version "0.4.1"
+  version "0.5.0"
 
   on_arm do
-    sha256 "c9b5836fff3bd8bf8fdd93cd7bfe6e343b4ccdcf26a23cbea384f71bbf500497"
+    sha256 "d58d684a1e3f3dd8b63431e32aa75ac4abecff2aee5aa48f3579e4957c9b3e8b"
 
     url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/Agent.Workbench_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "f4f7d82d9d5ee2ce32bb7efcf2425d2b29d82b69d7d09471ffb5db6322f08a08"
+    sha256 "af2cafc93af1845b4860d49383d2d4f21f49f1007af22a9e98ea86a2e713ae42"
 
     url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/Agent.Workbench_#{version}_x64.dmg"
   end
@@ -24,6 +24,7 @@ cask "agent-workbench" do
   depends_on macos: :ventura
 
   app "Agent Workbench.app"
+  binary "#{appdir}/Agent Workbench.app/Contents/Resources/bin/awb"
 
   zap trash: [
     "~/Library/Application Support/com.elva-labs.agent-workbench",
