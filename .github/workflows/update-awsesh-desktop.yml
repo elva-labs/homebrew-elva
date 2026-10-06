@@ -1,0 +1,85 @@
+name: Update awsesh desktop cask
+
+on:
+  schedule:
+    - cron: "37 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: update-awsesh-desktop
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: github.repository == 'elva-labs/homebrew-elva'
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Select a newer public desktop release
+        id: check
+        run: |
+          CURRENT="$(sed -n 's/^  version "\(.*\)"$/\1/p' Casks/awsesh-desktop.rb)"
+          [[ "$CURRENT" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]] || exit 1
+          TAG="$(gh release view --repo elva-labs/awsesh --json tagName,isDraft,isPrerelease,assets --jq 'select(.isDraft == false and .isPrerelease == false and any(.assets[]; .name == "awsesh-desktop-darwin-arm64.zip" and .size > 0) and any(.assets[]; .name == "SHA256SUMS" and .size > 0)) | .tagName')"
+          if [[ -z "$TAG" ]]; then
+            echo "No public stable desktop release with completed checksums"
+            exit 0
+          fi
+          [[ "$TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]] || exit 1
+          VERSION="${TAG#v}"
+          if [[ "$(printf '%s\n%s\n' "$CURRENT" "$VERSION" | sort -V | tail -n 1)" == "$CURRENT" ]]; then
+            echo "Keeping cask $CURRENT; latest desktop release is $VERSION"
+            exit 0
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "update=true" >> "$GITHUB_OUTPUT"
+
+      - name: Download and verify desktop artifacts
+        id: artifacts
+        if: steps.check.outputs.update == 'true'
+        env:
+          VERSION: ${{ steps.check.outputs.version }}
+        run: |
+          directory="$(mktemp -d "$RUNNER_TEMP/awsesh-desktop-XXXXXX")"
+          gh release download "v${VERSION}" --repo elva-labs/awsesh --pattern "awsesh-desktop-darwin-arm64.zip" --pattern "SHA256SUMS" --dir "$directory"
+          SHA="$(awk '$2 == "awsesh-desktop-darwin-arm64.zip" { if (NF != 2) exit 1; print $1 }' "$directory/SHA256SUMS")"
+          [[ "$SHA" =~ ^[a-f0-9]{64}$ ]] || exit 1
+          printf '%s  %s\n' "$SHA" "$directory/awsesh-desktop-darwin-arm64.zip" | shasum -a 256 -c -
+          echo "sha256=$SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Update cask version and checksum
+        if: steps.check.outputs.update == 'true'
+        env:
+          VERSION: ${{ steps.check.outputs.version }}
+          SHA: ${{ steps.artifacts.outputs.sha256 }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          file = Path("Casks/awsesh-desktop.rb")
+          contents = file.read_text()
+          for field, value in [("version", os.environ["VERSION"]), ("sha256", os.environ["SHA"])]:
+              contents, count = re.subn(r'^  ' + field + r' "[^"]+"$', f'  {field} "{value}"', contents, flags=re.MULTILINE)
+              if count != 1:
+                  raise ValueError(f"Expected one cask {field} stanza")
+          file.write_text(contents)
+          PY
+          ruby -c Casks/awsesh-desktop.rb
+          git diff --check
+
+      - name: Commit and publish cask update
+        if: steps.check.outputs.update == 'true'
+        env:
+          VERSION: ${{ steps.check.outputs.version }}
+        run: |
+          git config user.name "elva-bot"
+          git config user.email "gh-bot@elva-group.com"
+          git add Casks/awsesh-desktop.rb
+          git commit -m "chore(awsesh-desktop): release v${VERSION}"
+          git push
