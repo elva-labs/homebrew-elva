@@ -5,12 +5,12 @@ class Awsesh < Formula
   desc "AWS SSO session manager CLI"
   homepage "https://github.com/elva-labs/awsesh"
   license "MIT"
-  version "1.2.0"
+  version "1.3.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/elva-labs/awsesh/releases/download/v1.2.0/awsesh-darwin-x64.zip"
-      sha256 "7d16a769957192092b1ef7beca143098b61c0d3f631fc26fa14ad4ad739986b8"
+      url "https://github.com/elva-labs/awsesh/releases/download/v1.3.0/awsesh-darwin-x64.zip"
+      sha256 "ae4f5ce3366b79df305331d2b90a026f4b344ac558ead6f621237e3d2ed25a5f"
 
       def install
         bin.install "awsesh"
@@ -18,8 +18,8 @@ class Awsesh < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/elva-labs/awsesh/releases/download/v1.2.0/awsesh-darwin-arm64.zip"
-      sha256 "5a829075228841b0a77bde715c6b3130322de41b56ef7956dff9915321ea0c81"
+      url "https://github.com/elva-labs/awsesh/releases/download/v1.3.0/awsesh-darwin-arm64.zip"
+      sha256 "9149780b41a4a3c9965dbad5dc68b1de9b6f6c828c95d8aa3d0157834356ac4d"
 
       def install
         bin.install "awsesh"
@@ -30,16 +30,16 @@ class Awsesh < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/elva-labs/awsesh/releases/download/v1.2.0/awsesh-linux-x64.tar.gz"
-      sha256 "950ac8351d41fb9572d24f88787dd32b9b6755148ccbc3c0b9e0eaf4f074df9e"
+      url "https://github.com/elva-labs/awsesh/releases/download/v1.3.0/awsesh-linux-x64.tar.gz"
+      sha256 "ff21cc136c911d5f1fd3e4b63e8f3e22f584bd8dc4e012442cf21d6cf757af6b"
       def install
         bin.install "awsesh"
         bin.install_symlink "awsesh" => "sesh"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/elva-labs/awsesh/releases/download/v1.2.0/awsesh-linux-arm64.tar.gz"
-      sha256 "bf3da92465fb8ca82672845ed5cd02d844d8b4bc0291b7fc7b0f1c40a6617ce8"
+      url "https://github.com/elva-labs/awsesh/releases/download/v1.3.0/awsesh-linux-arm64.tar.gz"
+      sha256 "29a427c3d6cfa446fa62987d27f528480d909ffa9e913797e5808631ac7279a8"
       def install
         bin.install "awsesh"
         bin.install_symlink "awsesh" => "sesh"
