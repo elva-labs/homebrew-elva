@@ -21,6 +21,7 @@ cask "agent-workbench" do
     strategy :github_latest
   end
 
+  conflicts_with cask: "agent-workbench@beta"
   depends_on macos: :ventura
 
   app "Agent Workbench.app"

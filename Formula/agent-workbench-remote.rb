@@ -4,8 +4,8 @@
 class AgentWorkbenchRemote < Formula
   desc "Agent Workbench on another machine: the daemon a desktop reaches over ssh"
   homepage "https://github.com/elva-labs/agent-workbench"
-  license "MIT"
   version "0.8.0"
+  license "MIT"
 
   on_macos do
     on_arm do
@@ -28,6 +28,8 @@ class AgentWorkbenchRemote < Formula
       sha256 "61ea0135bf5832fa808c9f9cfec39d136d34d5c6ed3fddfd4e89a3b803949a16"
     end
   end
+
+  conflicts_with "elva-labs/elva/agent-workbench-remote-beta", because: "both install agent-workbench-remote"
 
   def install
     binary = Dir["agent-workbench-remote-*"].first
