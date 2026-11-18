@@ -1,6 +1,6 @@
 cask "awsesh-desktop" do
-  version "1.4.3"
-  sha256 "07c7782190881f340e4c117dd40176064fadc89e17de5ceb0c3f2df0091a4696"
+  version "1.4.4"
+  sha256 "effede393e7b76e1b768b32360df8555b90f2457f697f83666f5165d56033db1"
 
   url "https://github.com/elva-labs/awsesh/releases/download/v#{version}/awsesh-desktop-darwin-arm64.zip"
   name "Sesh"
