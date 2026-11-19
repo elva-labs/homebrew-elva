@@ -2,30 +2,30 @@
 # frozen_string_literal: true
 
 class AgentWorkbenchRemoteBeta < Formula
-  desc "Agent Workbench on another machine: the daemon a desktop reaches over ssh"
-  homepage "https://github.com/elva-labs/agent-workbench"
-  version "1.0.0-beta.4"
+  desc "Chord on another machine: the daemon a desktop reaches over ssh"
+  homepage "https://github.com/elva-labs/chord"
+  version "1.0.0-beta.5"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/agent-workbench-remote-darwin-aarch64"
-      sha256 "e84d147cb551b2e79ec1f36fe8f093e7bca9107a6eb5e93eace9695e316acfc0"
+      url "https://github.com/elva-labs/chord/releases/download/v#{version}/agent-workbench-remote-darwin-aarch64"
+      sha256 "2991461dd744fbe9cdb64decc663c4ffefc60c7c556ef29a189ee1d0020b82eb"
     end
     on_intel do
-      url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/agent-workbench-remote-darwin-x86_64"
-      sha256 "d16b5013f0190bd8642b30a76b1f64323ee4aa43d9ae765d85548a59329be062"
+      url "https://github.com/elva-labs/chord/releases/download/v#{version}/agent-workbench-remote-darwin-x86_64"
+      sha256 "c095aa752b3bd1084dead6f7c99cc814e3ac1cb321c14d0aefea769b9a5b82bc"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/agent-workbench-remote-linux-aarch64"
-      sha256 "1828653fd9a3ef948e499a8f2ddf5927b85ec851771f15915037d23d414ebd47"
+      url "https://github.com/elva-labs/chord/releases/download/v#{version}/agent-workbench-remote-linux-aarch64"
+      sha256 "1844f51fc1b91a453470c1bf25423dfedf1bbe11658045f48864195c43fea050"
     end
     on_intel do
-      url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/agent-workbench-remote-linux-x86_64"
-      sha256 "14e2b47717d3d3e40dc34130787ac0c534f24660925a5af010ba40b5aeab2fc1"
+      url "https://github.com/elva-labs/chord/releases/download/v#{version}/agent-workbench-remote-linux-x86_64"
+      sha256 "8ab21db34160c82fb669a974944af463dd94a6f127daa48b51756523515217dc"
     end
   end
 

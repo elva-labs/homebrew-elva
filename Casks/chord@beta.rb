@@ -1,20 +1,20 @@
-cask "agent-workbench@beta" do
-  version "1.0.0-beta.4"
+cask "chord@beta" do
+  version "1.0.0-beta.5"
 
   on_arm do
-    sha256 "35725efe8d07ac890abc2489841bb1ec2906feebeb334eb4b6132d3d0716aef2"
+    sha256 "875845fabac4365d8802fa0f0fc5b00e5de4820ad7f9a00cdb82843a17ada5e9"
 
-    url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/Agent.Workbench_#{version}_aarch64.dmg"
+    url "https://github.com/elva-labs/chord/releases/download/v#{version}/Chord_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "99dc85bb9e635433d780e7315b7d5a447e01ebe992812c6cc34478279cadb66f"
+    sha256 "46aff9d2125a0b5e53aedf6c8a688f935e7d3b0f69a19caf7a9bece80de43d39"
 
-    url "https://github.com/elva-labs/agent-workbench/releases/download/v#{version}/Agent.Workbench_#{version}_x64.dmg"
+    url "https://github.com/elva-labs/chord/releases/download/v#{version}/Chord_#{version}_x64.dmg"
   end
 
-  name "Agent Workbench"
+  name "Chord"
   desc "Desktop for terminal coding agents: sessions, live changes, remote projects"
-  homepage "https://github.com/elva-labs/agent-workbench"
+  homepage "https://github.com/elva-labs/chord"
 
   livecheck do
     url :url
@@ -31,11 +31,11 @@ cask "agent-workbench@beta" do
     end
   end
 
-  conflicts_with cask: "agent-workbench"
+  conflicts_with cask: ["chord", "agent-workbench"]
   depends_on macos: :ventura
 
-  app "Agent Workbench.app"
-  binary "#{appdir}/Agent Workbench.app/Contents/Resources/bin/awb"
+  app "Chord.app"
+  binary "#{appdir}/Chord.app/Contents/Resources/bin/awb"
 
   zap trash: [
     "~/Library/Application Support/com.elva-labs.agent-workbench",
