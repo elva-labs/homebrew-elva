@@ -1,13 +1,13 @@
 cask "chord@beta" do
-  version "1.0.0-beta.5"
+  version "1.0.0-beta.6"
 
   on_arm do
-    sha256 "875845fabac4365d8802fa0f0fc5b00e5de4820ad7f9a00cdb82843a17ada5e9"
+    sha256 "f5ae585aabe3815c9fb48fc3a4f80e8add875815aa62f19c77befe7044ee97f2"
 
     url "https://github.com/elva-labs/chord/releases/download/v#{version}/Chord_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "46aff9d2125a0b5e53aedf6c8a688f935e7d3b0f69a19caf7a9bece80de43d39"
+    sha256 "3b4e7cb1767cf8ba33b3aae3f8daeca273175c9d0378ddd6a31565a48d678779"
 
     url "https://github.com/elva-labs/chord/releases/download/v#{version}/Chord_#{version}_x64.dmg"
   end
