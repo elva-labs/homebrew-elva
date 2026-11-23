@@ -1,13 +1,13 @@
 cask "chord@beta" do
-  version "1.0.0-beta.8"
+  version "1.0.0-beta.9"
 
   on_arm do
-    sha256 "8fab0928ca785f68ed74fc1c650d1159a4bce1a6d78d34d3b0d5b64dfc614939"
+    sha256 "a21b461a7a9f033b4c5618144a28ff120530d10cdd5b6a0c29f57a0000e933bd"
 
     url "https://github.com/elva-labs/chord/releases/download/v#{version}/Chord_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "df8fc72f9b12eb2f9297ff949493fb46c9fe2f7c512615362643372bf4bd57a6"
+    sha256 "ddc667beada03e1b52b4c3b2dc44237df9567ac7ac721c4de3d5e0cc3e94ea68"
 
     url "https://github.com/elva-labs/chord/releases/download/v#{version}/Chord_#{version}_x64.dmg"
   end
@@ -35,7 +35,8 @@ cask "chord@beta" do
   depends_on macos: :ventura
 
   app "Chord.app"
-  binary "#{appdir}/Chord.app/Contents/Resources/bin/awb"
+  binary "#{appdir}/Chord.app/Contents/Resources/bin/chord"
+  binary "#{appdir}/Chord.app/Contents/Resources/bin/chord", target: "awb" # the helper's earlier name
 
   zap trash: [
     "~/Library/Application Support/com.elva-labs.agent-workbench",
