@@ -4,28 +4,28 @@
 class ChordRemoteBeta < Formula
   desc "Chord on another machine: the daemon a desktop reaches over ssh"
   homepage "https://github.com/elva-labs/chord"
-  version "1.0.0-beta.9"
+  version "1.0.0-beta.10"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/elva-labs/chord/releases/download/v#{version}/chord-remote-darwin-aarch64"
-      sha256 "d4c1c8fc15adabac65b23b4162cfe959721b1b8cbf5bb7c987ecb63773e281f7"
+      sha256 "2cdc4336ce5c19e2efd47acea90472cbd221b77e82d6b73071ffde903e8d1f27"
     end
     on_intel do
       url "https://github.com/elva-labs/chord/releases/download/v#{version}/chord-remote-darwin-x86_64"
-      sha256 "315b9516f38d8c4824d12e2ccf934a39a14784594e0529adb55f695994f58443"
+      sha256 "b71df0ca199e0990263db0d7a6f5879d889888a8fdd9a41371e6fbbe329a12c8"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/elva-labs/chord/releases/download/v#{version}/chord-remote-linux-aarch64"
-      sha256 "18432dcd9d4a5d6ff8b06cc6edae4426ddcaa2b4ed4e92884181e4f003e916ba"
+      sha256 "d0aeecc4345d6690ed266e0854e4e035dedcee967a9cc2bb2d24a3a69940f31d"
     end
     on_intel do
       url "https://github.com/elva-labs/chord/releases/download/v#{version}/chord-remote-linux-x86_64"
-      sha256 "3cf327cc5a841a833af78b85a910420fc6b53e4a1c2dd4517e6aac799dd5602b"
+      sha256 "c6df73597d7c7ac2c89cc79a6715bf02de32ae55237d906e14a8914a086caef0"
     end
   end
 
